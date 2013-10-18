@@ -1,0 +1,47 @@
+body
+{
+	background-color: black;
+}
+
+
+#horloge
+{
+	right: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: hidden;
+	background-color  : rgba(0, 0, 0, 1);
+	color             : #FFF;
+	text-align        : center;
+	font-family: Comic Sans MS;
+}
+
+#horloge_heure
+{
+  font-size         : 150px;
+  background-color  : rgba(0, 0, 0, 1);
+}
+
+#horloge_date
+{
+  font-size         : 50px;
+  background-color  : rgba(0, 0, 0, 1);
+}
+
+#horloge_grey
+{
+  color             : #888;
+  font-size         : inherit;
+}
+
+#meteo
+{
+  right             : 0px;
+  top               : 300px;
+  position          : absolute;
+  overflow          : hidden;
+  background-color  : rgba(0, 0, 0, 1);
+  color             : #FFF;
+  font-weight       : bold;
+  text-align        : center;
+}
