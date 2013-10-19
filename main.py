@@ -2,26 +2,33 @@
 # -*-coding:Utf-8 -*
 
 from time import sleep
-import sys
+import sys, os, help
 import help
 from date import ecritDate
 from meteo import ecritMeteo
 import html
+from crueseine import recupAlerte
+
 
 if __name__ == '__main__':
 	#appel du programme principal
 	if len(sys.argv) == 2 and sys.argv[1] == "runserver": #si ya un argument on execute le code
 		print("runserver")
 		while True:
+			os.system("rm crue.xml") #supp le vieux fichier xml
 			pagehtml = open("index.html", "w") #fichier qui contient le code
 			html.ecritDebutHtml(pagehtml)
 
 			ecritDate(pagehtml)
 			ecritMeteo(pagehtml)
 
+			recupAlerte()
+
 			html.ecritFinHtml(pagehtml)
 			pagehtml.close()
-			sleep(60)#rafraichissement toutes les minutes
+			
+			sleep(2)#rafraichissement toutes les minutes
+
 
 	elif len(sys.argv) == 2 and sys.argv[1] == "--help":
 		help.help()
