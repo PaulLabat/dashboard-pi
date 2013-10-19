@@ -3,4 +3,4 @@ def getMeteo():
 
 def ecritMeteo(pagehtml):
 	#code pour meteo
-		pagehtml.write('<div id="meteo">{}</div>'.format(getMeteo()))
+		pagehtml.write('<div id="meteo">{}</div>\n'.format(getMeteo()))

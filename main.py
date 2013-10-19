@@ -7,7 +7,7 @@ import help
 from date import ecritDate
 from meteo import ecritMeteo
 import html
-from crueseine import recupAlerte
+from crueseine import ecritCrueSeine
 
 
 if __name__ == '__main__':
@@ -22,7 +22,7 @@ if __name__ == '__main__':
 			ecritDate(pagehtml)
 			ecritMeteo(pagehtml)
 
-			recupAlerte()
+			ecritCrueSeine(pagehtml)
 
 			html.ecritFinHtml(pagehtml)
 			pagehtml.close()
