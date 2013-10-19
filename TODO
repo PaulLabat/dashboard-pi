@@ -1,0 +1,12 @@
+fonction a utiliser
+modifier le script de rafraichissement auto
+ localtime = http://www.jchr.be/python/modules.htm
+pour la meteo recup la page http://france.meteofrance.com/france/meteo?PREVISIONS_PORTLET.path=previsionsville/381850
+puis chercher le code qui va bien
+rajouter les grèves sncf et ratp
+prevision des crue de la seine
+rajouter un interpréteur de commande shell
+un thread pour rafraichir heure :toutes les minutes
+un thread pour rafraichir date : 1fois par jour
+thread pour météo : toute les 4h
+thread pour le reste
