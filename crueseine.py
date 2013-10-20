@@ -50,8 +50,8 @@ def ecritCrueSeine(pageHtml):
 
 
 	pageHtml.write("""\n<div id="crue"> <h3> Info crues de la Seine</h3>\n""")
-	pageHtml.write("""<div id="alerte">Niveau de l'alerte : <img src="{}.jpg" alt="{}" /> {}</div>\n""".format(niveauAlerte, niveauAlerte, niveauAlerte))
-	
+	pageHtml.write("""<div id="alerte">Niveau de l'alerte : {}</div>\n""".format(niveauAlerte))
+
 	pageHtml.write("""<div id="description"> {}</div>\n""".format(getDescription(niveauAlerte)))
 	pageHtml.write("""<div id="dateMaj"> Dernière mise à jour : {} </div>\n""".format(dateMaj))
-	pageHtml.write("</div>\n")
+	pageHtml.write("</div>\n")#fin div crue

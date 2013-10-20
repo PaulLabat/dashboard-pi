@@ -2,6 +2,7 @@ fonction a utiliser
 modifier le script de rafraichissement auto
  localtime = http://www.jchr.be/python/modules.htm
 pour la meteo recup la page http://france.meteofrance.com/france/meteo?PREVISIONS_PORTLET.path=previsionsville/381850
+utiliser le fichier xml de yahoo pour la météo
 puis chercher le code qui va bien
 rajouter les grèves sncf et ratp
 prevision des crue de la seine

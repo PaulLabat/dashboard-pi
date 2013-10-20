@@ -45,3 +45,30 @@ body
   font-weight       : bold;
   text-align        : center;
 }
+#crue
+{
+  color:white;
+  right:50px;
+  top:400px;
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+  font-family: Comic Sans MS;
+}
+
+#alerte
+{
+  font-size: 18px;
+}
+
+#description
+{
+  font-size: 15px;
+}
+
+#dateMaj
+{
+  font-style: 18px;
+  font-color: white;
+
+}
