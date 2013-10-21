@@ -1,3 +1,4 @@
+# -*-coding:Utf-8 -*
 def ecritDebutHtml(pagehtml):
 	pagehtml.write("""
 <!DOCTYPE html>\n

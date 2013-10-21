@@ -19,3 +19,7 @@ fichier .py qui centralise tous les messages d'erreur
 Crue de la seine :
 rajout du graph de l'évolution de la hauteur de l'orge :
 http://www.vigicrues.gouv.fr/niv3grph.php?_jpg_csimd=1&idstation=740&idspc=7&typegraphe=h&AffProfondeur=72&AffRef=auto&AffPrevi=non&nbrstations=0&ong=1
+
+
+Météo :
+http://rss.wunderground.com/auto/rss_full/global/stations/07486.xml?units=metric

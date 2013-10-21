@@ -1,3 +1,4 @@
+# -*-coding:Utf-8 -*
 from time import localtime
 
 def getTime():
