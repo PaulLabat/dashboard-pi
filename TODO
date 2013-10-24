@@ -12,7 +12,6 @@ un thread pour rafraichir date : 1fois par jour
 thread pour météo : toute les 4h
 thread pour le reste
 
-fichier .py qui centralise tous les messages d'erreur
 
 
 
@@ -23,3 +22,6 @@ http://www.vigicrues.gouv.fr/niv3grph.php?_jpg_csimd=1&idstation=740&idspc=7&typ
 
 Météo :
 http://rss.wunderground.com/auto/rss_full/global/stations/07486.xml?units=metric
+
+Rendre les fonctions de récupération de la météo via Yahoo plus générique (on peut choisir la ville)
+Rendre le programme le plus générique posible : programmation objet ?

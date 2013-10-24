@@ -34,23 +34,40 @@ body
   font-size         : inherit;
 }
 
+/*section meteo*/
 #meteo
 {
-  right             : 0px;
-  top               : 300px;
+  right             : 700px;
+  top               : 50px;
   position          : absolute;
   overflow          : hidden;
   background-color  : rgba(0, 0, 0, 1);
   color             : #FFF;
-  font-weight       : bold;
-  text-align        : center;
+  text-align        : justify;
 }
+
+#headmeteo{
+  font-size: 25px;
+  text-align: center;
+}
+
+
+#forecast{
+  text-align: justify;
+}
+#details{
+  text-align: justify;
+}
+
+
+
+/*section crue*/
 #crue
 {
   color:white;
   width: 600px;
   right:50px;
-  top:400px;
+  top:300px;
   position: absolute;
   overflow: hidden;
   text-align: center;
