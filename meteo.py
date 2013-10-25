@@ -36,8 +36,10 @@ def recupMeteo():
 	return condition,wind,atmospher,astronomy,forecast
 
 
+
 #liste les directions avec la signification :
 #90 : E
+#190 : S
 
 def ecritMeteo(pagehtml):
 	i=1
@@ -45,26 +47,21 @@ def ecritMeteo(pagehtml):
 	#pagehtml.write('<div id="meteo">{}</div>\n'.format(getMeteo()))
 	#nouveau code
 	condition,wind,atmospher,astronomy,forecast = recupMeteo()
-	#print(condition)
-	#print(wind)
-	#print(atmospher)
-	#print(astronomy)
-	#print(forecast)
 	pagehtml.write('<div id="meteo">\n')
 	pagehtml.write('<div id="headmeteo">Aéroport Paris Orly</div>\n')
-	pagehtml.write("<h1>Aujourd'hui {}°</h1>\n".format(condition["temp"]))#température actuel
+	pagehtml.write('<div id="meteoJour">{}° <img src="img/icons_120x100/02d.png"></div>\n'.format(condition["temp"]))#température actuel
 	pagehtml.write('<div id="forecast"><h2>Prévisions</h2>\n')#debut ecriture des prévisions
 	while i <= 5 :
-		pagehtml.write(' {} {}° {}° {}</br>\n'.format(forecast[i]["day"],forecast[i]["low"],forecast[i]["high"], forecast[i]["text"]))
+		pagehtml.write(' <p>{} {}° <b>{}°</b> {}</p>\n'.format(forecast[i]["day"],forecast[i]["low"],forecast[i]["high"], forecast[i]["text"]))
 		i+=1
 
 	pagehtml.write('</div>\n')
 
 	pagehtml.write('<div id="details"> <h2> Détails</h2>\n')
-	pagehtml.write('Température ressentie {}° Humidité {}% Pression {}mBar<br>\n'.format(wind["chill"], atmospher["humidity"],atmospher["pressure"]))
-	pagehtml.write('Vent {}km/h Direction {}<br>\n'.format(wind["speed"],wind["direction"]))
-	pagehtml.write('Visibilité {}km<br>\n'.format(atmospher["visibility"]))
-	pagehtml.write('Levé {} Couché {}<br>\n'.format(astronomy["sunrise"],astronomy["sunset"]))
+	pagehtml.write('Température ressentie <b>{}°</b> Humidité <b>{}%</b> Pression <b>{}mBar</b><br>\n'.format(wind["chill"], atmospher["humidity"],atmospher["pressure"]))
+	pagehtml.write('Vent <b>{}km/h</b> Direction <b>{}</b><br>\n'.format(wind["speed"],wind["direction"]))
+	pagehtml.write('Visibilité <b>{}km</b><br>\n'.format(atmospher["visibility"]))
+	pagehtml.write('Levé <b>{}</b> Couché <b>{}</b><br>\n'.format(astronomy["sunrise"],astronomy["sunset"]))
 	pagehtml.write('</div>\n')
 
 	pagehtml.write("</div>")

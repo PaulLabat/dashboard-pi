@@ -2,7 +2,13 @@ body
 {
 	background-color: black;
 }
+b{
+  color: #3f9bec;
+}
 
+p{
+  text-align: justify;
+}
 
 #horloge
 {
@@ -43,20 +49,29 @@ body
   overflow          : hidden;
   background-color  : rgba(0, 0, 0, 1);
   color             : #FFF;
-  text-align        : justify;
 }
 
 #headmeteo{
   font-size: 25px;
   text-align: center;
 }
-
+#meteoJour{
+  width: 290px;
+  height: 110px;
+  font-size: 100px;
+  background-color: grey;
+  text-shadow:5px 5px 10px black;
+}
 
 #forecast{
   text-align: justify;
+  background-color: grey;
+  width: 100%;
 }
 #details{
   text-align: justify;
+  background-color: grey;
+  width: 100%;
 }
 
 
