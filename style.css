@@ -6,72 +6,68 @@ b{
   color: #3f9bec;
 }
 
-p{
-  text-align: justify;
-}
-
 #horloge
 {
 	right: 0px;
 	top: 0px;
 	position: absolute;
 	overflow: hidden;
-	background-color  : rgba(0, 0, 0, 1);
 	color             : #FFF;
 	text-align        : center;
-	font-family: Comic Sans MS;
+	font-family: "Comic Sans MS";
 }
 
 #horloge_heure
 {
   font-size         : 150px;
-  background-color  : rgba(0, 0, 0, 1);
+  background-color  : black;
 }
 
 #horloge_date
 {
   font-size         : 50px;
-  background-color  : rgba(0, 0, 0, 1);
-}
-
-#horloge_grey
-{
-  color             : #888;
-  font-size         : inherit;
+  background-color  : black;
 }
 
 /*section meteo*/
 #meteo
 {
   right             : 700px;
-  top               : 50px;
+  top               : 0px;
   position          : absolute;
   overflow          : hidden;
-  background-color  : rgba(0, 0, 0, 1);
   color             : #FFF;
+  width:400px;
+
 }
 
 #headmeteo{
   font-size: 25px;
   text-align: center;
+  height: 40px;
+
 }
 #meteoJour{
   width: 290px;
   height: 110px;
   font-size: 100px;
-  background-color: grey;
+  /*background-color: black;*/
+  background-image: url('img/fond-box.png');
   text-shadow:5px 5px 10px black;
+  border-radius: 10px;
+
 }
 
 #forecast{
-  text-align: justify;
-  background-color: grey;
+  background-image: url('img/fond-box.png');
   width: 100%;
+  border-radius: 10px;
 }
+
 #details{
-  text-align: justify;
-  background-color: grey;
+  background-image: url('img/fond-box.png');
   width: 100%;
+  border-radius: 10px;
 }
 
 
@@ -81,12 +77,13 @@ p{
 {
   color:white;
   width: 600px;
-  right:50px;
+  right:0px;
   top:300px;
   position: absolute;
   overflow: hidden;
   text-align: center;
   font-family: Comic Sans MS;
+  background-color: black;
 }
 
 #alerte

@@ -31,6 +31,6 @@ meilleur:
 http://studiocassette.com/forecast-font-creez-facilement-votre-pack-dicones-meteo/
 http://forecastfont.iconvau.lt/
 
-
+Creer un fichier de config + fonction qui charge les préférences utilisateurs
 Rendre les fonctions de récupération de la météo via Yahoo plus générique (on peut choisir la ville)
 Rendre le programme le plus générique posible : programmation objet ?

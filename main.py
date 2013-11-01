@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
 			html.ecritFinHtml(pagehtml)
 			pagehtml.close()
-			
+			print("sleep\n")
 			sleep(2)#rafraichissement toutes les minutes, a modifier par 60
 
 
