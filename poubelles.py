@@ -14,7 +14,7 @@ def getPoubelles():
 	else:
 		soup = BeautifulSoup(url.read())
 		for td in soup.find_all('td'):
-			dico[i] = td.string
+			dico[i] = td.string.encode("utf-8")
 			i = i+1
 
 
@@ -22,10 +22,14 @@ def getPoubelles():
 
 def ecritPoubelles(pagehtml):
 	dico = getPoubelles()
-	pagehtml.write('<div id="poubelles">\n')
+	i=1
+	pagehtml.write('<div id="poubelle">\n<table class="table">\n')
 	for elm in dico.values():
-		#tmp = u"{}".format(elm)
-		pagehtml.write(elm.encode("utf-8"))
-		pagehtml.write("<br>\n")
+		if(i%2==0):
+			pagehtml.write('<td class="td">{}</td>\n</tr>\n'.format(elm))
+		else:
+			pagehtml.write('<tr>\n<td class="td">{}</td>\n'.format(elm))
 
-	pagehtml.write('</div>\n')
+		i = i+1
+
+	pagehtml.write('</table>\n</div>\n')

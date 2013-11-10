@@ -25,7 +25,6 @@ if __name__ == '__main__':
 			ecritMeteo(pagehtml)
 
 			ecritCrueSeine(pagehtml)
-
 			ecritPoubelles(pagehtml)
 
 			html.ecritFinHtml(pagehtml)

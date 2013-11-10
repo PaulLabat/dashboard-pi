@@ -6,6 +6,15 @@ b{
   color: #3f9bec;
 }
 
+.table
+{
+  border-collapse: collapse;
+}
+.td
+{
+  border:1px solid white;
+}
+
 #horloge
 {
 	right: 0px;
@@ -118,4 +127,14 @@ b{
 #Rouge
 {
   color:red;
+}
+
+#poubelle
+{
+  top:500px;
+  left : 50%;
+  color:white;
+  width: 400px;
+  height: 300px;
+
 }
