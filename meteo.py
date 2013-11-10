@@ -69,17 +69,46 @@ def ecritMeteo(pagehtml):
 	pagehtml.write('<div id="meteoJour">{}° <img src="img/icons_120x100/02d.png"></div>\n'.format(condition["temp"]))#température actuel
 	pagehtml.write('<div id="forecast"><h2>Prévisions</h2>\n')#debut ecriture des prévisions
 	pagehtml.write('<table>')
-	pagehtml.write('<tr>\n<td>Jour</td> <td>Min</td> <td>Max</td> <td>Code</td>\n</tr>\n')
-	while i <= 5 :
-		pagehtml.write('<tr>\n<td>{}</td>\n'.format(getDay(forecast[i]["day"])))
-		pagehtml.write('<td>{}°</td>\n'.format(forecast[i]["low"]))
-		pagehtml.write('<td>{}°</td>\n'.format(forecast[i]["high"]))
-		pagehtml.write('<td>{}</td>\n</tr>\n'.format(forecast[i]["code"]))
 
+	pagehtml.write('<table>\n<tr>\n')#debut du tableau qui englobe tout
+	while i<=5:
+		pagehtml.write("<td>\n<table>\n")#table qui contient info 1 jour
+
+		pagehtml.write("<tr>\n")
+		pagehtml.write("<td>\n")
+
+		pagehtml.write("<table>\n")
+		pagehtml.write('<tr>\n<td>{}</td>\n'.format(getDay(forecast[i]["day"])))
+		pagehtml.write("<tr>\n<td>\n")
+
+		pagehtml.write('<table>\n<tr>\n')
+		pagehtml.write("<td>\n")
+		pagehtml.write("<table>\n<tr>\n")
+		pagehtml.write('<td>{}°</td>'.format(forecast[i]["high"]))
+		pagehtml.write('</tr>\n<tr>\n')
+		pagehtml.write('<td>{}°</td>'.format(forecast[i]["low"]))
+		pagehtml.write("</tr>\n</table>\n")
+
+
+		pagehtml.write("</td>\n")
+		pagehtml.write('<td><img src="img/meteo/{}.png"/></td>\n'.format(forecast[i]["code"]))
+
+		pagehtml.write('</tr>\n</table\n')
+		pagehtml.write("</td>\n</tr>\n</table>\n")
+
+		pagehtml.write("</td>\n")
+		if i ==5:
+			pagehtml.write("<td></td>\n")
+		else:
+			pagehtml.write('<td><div class="separator"></div></td>\n')#contien le separator
+
+		pagehtml.write("</tr>\n")
+		pagehtml.write("</td></table>\n")
 
 		i+=1
 
-	pagehtml.write('</table>')
+	pagehtml.write("</td>\n</td>\n")
+	pagehtml.write('</table>\n')
 	pagehtml.write('</div>\n')
 
 	pagehtml.write('<div id="details"> <h2> Détails</h2>\n')

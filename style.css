@@ -6,6 +6,7 @@ b{
   color: #3f9bec;
 }
 
+
 .table
 {
   border-collapse: collapse;
@@ -15,6 +16,12 @@ b{
   border:1px solid white;
 }
 
+img
+{
+  height: 60px;
+  width: 60px;
+}
+/****************************code de l'horloge*/
 #horloge
 {
 	right: 0px;
@@ -38,15 +45,14 @@ b{
   background-color  : black;
 }
 
-/*section meteo*/
+/*****************************section meteo*/
 #meteo
 {
-  right             : 700px;
+  right             : 800px;
   top               : 0px;
   position          : absolute;
   overflow          : hidden;
   color             : #FFF;
-  width:400px;
 
 }
 
@@ -60,7 +66,6 @@ b{
   width: 290px;
   height: 110px;
   font-size: 100px;
-  /*background-color: black;*/
   background-image: url('img/fond-box.png');
   text-shadow:5px 5px 10px black;
   border-radius: 10px;
@@ -79,9 +84,15 @@ b{
   border-radius: 10px;
 }
 
+/*separator*/
+.separator{
+  background-image:linear-gradient(#dedede, #6e6e6e);
+  width: 3px;
+  height: 60px;
+}
 
 
-/*section crue*/
+/***********************************section crue*/
 #crue
 {
   color:white;
@@ -91,7 +102,7 @@ b{
   position: absolute;
   overflow: hidden;
   text-align: center;
-  font-family: Comic Sans MS;
+  font-family: "Comic Sans MS";
   background-color: black;
 }
 
@@ -129,10 +140,12 @@ b{
   color:red;
 }
 
+
+/**************************code des poubelles*/
 #poubelle
 {
   top:500px;
-  left : 50%;
+  left: 50%;
   color:white;
   width: 400px;
   height: 300px;
