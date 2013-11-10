@@ -4,10 +4,8 @@
 from time import sleep
 import sys, os, help
 import help
-from date import ecritDate
 from meteo import ecritMeteo
 import html
-from crueseine import ecritCrueSeine
 from poubelles import ecritPoubelles
 
 
@@ -21,10 +19,7 @@ if __name__ == '__main__':
 			pagehtml = open("index.html", "w") #fichier qui contient le code
 			html.ecritDebutHtml(pagehtml)
 
-			ecritDate(pagehtml)
 			ecritMeteo(pagehtml)
-
-			ecritCrueSeine(pagehtml)
 			ecritPoubelles(pagehtml)
 
 			html.ecritFinHtml(pagehtml)

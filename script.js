@@ -1,5 +1,5 @@
-function refresh(){
-	location.reload(true);	
+function refresh() {
+	location.reload(true);
 }
 
 window.setTimeout("refresh()", 60000);

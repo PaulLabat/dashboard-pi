@@ -23,12 +23,12 @@ def getPoubelles():
 def ecritPoubelles(pagehtml):
 	dico = getPoubelles()
 	i=1
-	pagehtml.write('<div id="poubelle">\n<table class="table">\n')
+	pagehtml.write('<div id="poubelle">\n<div id="titrepoubelle">Calendrier des poubelles</div><br><table>\n')
 	for elm in dico.values():
 		if(i%2==0):
-			pagehtml.write('<td class="td">{}</td>\n</tr>\n'.format(elm))
+			pagehtml.write('<td>{}</td>\n</tr>\n'.format(elm))
 		else:
-			pagehtml.write('<tr>\n<td class="td">{}</td>\n'.format(elm))
+			pagehtml.write('<tr>\n<td>{}</td>\n'.format(elm))
 
 		i = i+1
 

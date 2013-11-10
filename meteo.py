@@ -1,6 +1,7 @@
 # -*-coding:Utf-8 -*
 from os import system
 import xml.etree.ElementTree as ET
+from crueseine import recupAlerte, getDescription
 
 def getMeteo():
 	return """<div id="cont_MzgxODV8NXw0fDR8NHwwMDAwMDB8MXxGRkZGRkZ8Y3wx"><div id="spa_MzgxODV8NXw0fDR8NHwwMDAwMDB8MXxGRkZGRkZ8Y3wx"><a id="a_MzgxODV8NXw0fDR8NHwwMDAwMDB8MXxGRkZGRkZ8Y3wx" href="http://www.meteocity.com/france/grenoble_v38185/" target="_blank" style="color:#000;text-decoration:none;">Météo Grenoble</a></div><script type="text/javascript" src="http://widget.meteocity.com/js/MzgxODV8NXw0fDR8NHwwMDAwMDB8MXxGRkZGRkZ8Y3wx"></script></div> """
@@ -35,13 +36,6 @@ def recupMeteo():
 
 	return condition,wind,atmospher,astronomy,forecast
 
-def getImage(code):
-	return{
-		"Shower Early":"img/icons_120x100/05d.png",
-		"Partly Cloudy":"img/icons_120x100/03d.png"
-
-	}[code]
-
 def getDay(day):
 	return{
 	"Mon":"Lundi",
@@ -60,27 +54,42 @@ def getDay(day):
 
 def ecritMeteo(pagehtml):
 	i=1
-	#code pour meteo
-	#pagehtml.write('<div id="meteo">{}</div>\n'.format(getMeteo()))
-	#nouveau code
 	condition,wind,atmospher,astronomy,forecast = recupMeteo()
+	alerte, dateMaj = recupAlerte()
+
+
 	pagehtml.write('<div id="meteo">\n')
 	pagehtml.write('<div id="headmeteo">Aéroport Paris Orly</div>\n')
-	pagehtml.write('<div id="meteoJour">{}° <img src="img/icons_120x100/02d.png"></div>\n'.format(condition["temp"]))#température actuel
-	pagehtml.write('<div id="forecast"><h2>Prévisions</h2>\n')#debut ecriture des prévisions
-	pagehtml.write('<table>')
+	#debut ecriture des prévisions
+	pagehtml.write('<div id="forecast"><h2>Prévisions</h2>\n')
 
 	pagehtml.write('<table>\n<tr>\n')#debut du tableau qui englobe tout
+
+	#prev aujourd'hui
+	pagehtml.write("<td>\n<table>\n")#table qui contient info 1 jour
+	pagehtml.write("<tr>\n")
+	pagehtml.write("<td>\n")
+	pagehtml.write("<table>\n")
+	pagehtml.write("<tr>\n<td>Maintenant</td></tr>\n")
+	pagehtml.write("<tr>\n<td>\n")
+	pagehtml.write('<table>\n<tr>\n')
+	pagehtml.write("<td>{}°\n".format(condition["temp"]))
+	pagehtml.write("</td>\n")
+	pagehtml.write('<td><img src="img/meteo/{}.png"/></td>\n'.format(condition["code"]))
+	pagehtml.write('</tr>\n</table>\n')
+	pagehtml.write("</td>\n</tr>\n</table>\n")
+	pagehtml.write("</td>\n")
+	pagehtml.write('<td><div class="separator"></div></td>\n')#contien le separator
+	pagehtml.write("</tr>\n")
+	pagehtml.write("</table>\n")
+	
 	while i<=5:
 		pagehtml.write("<td>\n<table>\n")#table qui contient info 1 jour
-
 		pagehtml.write("<tr>\n")
 		pagehtml.write("<td>\n")
-
 		pagehtml.write("<table>\n")
-		pagehtml.write('<tr>\n<td>{}</td>\n'.format(getDay(forecast[i]["day"])))
+		pagehtml.write('<tr>\n<td>{}</td></tr>\n'.format(getDay(forecast[i]["day"])))
 		pagehtml.write("<tr>\n<td>\n")
-
 		pagehtml.write('<table>\n<tr>\n')
 		pagehtml.write("<td>\n")
 		pagehtml.write("<table>\n<tr>\n")
@@ -88,14 +97,10 @@ def ecritMeteo(pagehtml):
 		pagehtml.write('</tr>\n<tr>\n')
 		pagehtml.write('<td>{}°</td>'.format(forecast[i]["low"]))
 		pagehtml.write("</tr>\n</table>\n")
-
-
 		pagehtml.write("</td>\n")
 		pagehtml.write('<td><img src="img/meteo/{}.png"/></td>\n'.format(forecast[i]["code"]))
-
-		pagehtml.write('</tr>\n</table\n')
+		pagehtml.write('</tr>\n</table>\n')
 		pagehtml.write("</td>\n</tr>\n</table>\n")
-
 		pagehtml.write("</td>\n")
 		if i ==5:
 			pagehtml.write("<td></td>\n")
@@ -103,24 +108,29 @@ def ecritMeteo(pagehtml):
 			pagehtml.write('<td><div class="separator"></div></td>\n')#contien le separator
 
 		pagehtml.write("</tr>\n")
-		pagehtml.write("</td></table>\n")
+		pagehtml.write("</table>\n")
 
 		i+=1
 
-	pagehtml.write("</td>\n</td>\n")
+	pagehtml.write("</td>\n</tr>\n")
 	pagehtml.write('</table>\n')
 	pagehtml.write('</div>\n')
-
+	#code pour le detail du jour
 	pagehtml.write('<div id="details"> <h2> Détails</h2>\n')
 	pagehtml.write("<table>\n")
-	pagehtml.write('<tr>\n<td>Température ressentie</td> <td><b>{}°</b></td> <td>Humidité</td> <td><b>{}%</b></td>\n</tr>\n'.format(wind["chill"], atmospher["humidity"]))
-	pagehtml.write('<tr>\n<td>Vent</td> <td><b>{}km/h</b></td> <td>Direction</td> <td><b>{}</b></td>\n</tr>\n'.format(wind["speed"],wind["direction"]))
-	pagehtml.write('<tr>\n<td>Visibilité</td> <td><b>{}km</b></td> <td>Pression</td> <td><b>{}mBar</b></td>\n</tr>\n'.format(atmospher["visibility"],atmospher["pressure"]))
+	pagehtml.write('<tr>\n<td>Température ressentie</td> <td><b>{}°</b></td> <td>Humidité</td> <td><b>{} %</b></td>\n</tr>\n'.format(wind["chill"], atmospher["humidity"]))
+	pagehtml.write('<tr>\n<td>Vent</td> <td><b>{} km/h</b></td> <td>Direction</td> <td><b>{}</b></td>\n</tr>\n'.format(wind["speed"],wind["direction"]))
+	pagehtml.write('<tr>\n<td>Visibilité</td> <td><b>{} km</b></td> <td>Pression</td> <td><b>{} mBar</b></td>\n</tr>\n'.format(atmospher["visibility"],atmospher["pressure"]))
 	pagehtml.write('<tr>\n<td>Levé</td> <td><b>{}</b></td> <td>Couché</td> <td><b>{}</b></td>\n</tr>\n'.format(astronomy["sunrise"],astronomy["sunset"]))
 	pagehtml.write("</table>\n")
 	pagehtml.write('</div>\n')
 
-	pagehtml.write("</div>")
+	#ecriture de la vigilance crue de la seine
+	pagehtml.write('<div id="crue"><h2>Crue de la Seine</h2>')
+	pagehtml.write('<table>\n<tr><td><div id="{}">{}</div></td></tr>\n<tr><td>{}</td></tr>\n</table>\n'.format(alerte,getDescription(alerte),dateMaj))
+	pagehtml.write("</div>\n")#div fin crue
+
+	pagehtml.write("</div>\n")#div fin meteo
 
 	#pour forecast, les indices du dico sont hight,code,low,date,text,day
 	#changer la couleur du texte des données et pas des textes de précisions (tp0, humidité ...)

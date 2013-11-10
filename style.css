@@ -6,50 +6,17 @@ b{
   color: #3f9bec;
 }
 
-
-.table
-{
-  border-collapse: collapse;
-}
-.td
-{
-  border:1px solid white;
-}
-
 img
 {
   height: 60px;
   width: 60px;
 }
-/****************************code de l'horloge*/
-#horloge
-{
-	right: 0px;
-	top: 0px;
-	position: absolute;
-	overflow: hidden;
-	color             : #FFF;
-	text-align        : center;
-	font-family: "Comic Sans MS";
-}
-
-#horloge_heure
-{
-  font-size         : 150px;
-  background-color  : black;
-}
-
-#horloge_date
-{
-  font-size         : 50px;
-  background-color  : black;
-}
 
 /*****************************section meteo*/
 #meteo
 {
-  right             : 800px;
-  top               : 0px;
+  left             : 20px;
+  top               : 20px;
   position          : absolute;
   overflow          : hidden;
   color             : #FFF;
@@ -62,26 +29,17 @@ img
   height: 40px;
 
 }
-#meteoJour{
-  width: 290px;
-  height: 110px;
-  font-size: 100px;
-  background-image: url('img/fond-box.png');
-  text-shadow:5px 5px 10px black;
-  border-radius: 10px;
-
-}
 
 #forecast{
-  background-image: url('img/fond-box.png');
+ /* background-image: url('img/fond-box.png');*/
   width: 100%;
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 #details{
-  background-image: url('img/fond-box.png');
+  /*background-image: url('img/fond-box.png');*/
   width: 100%;
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 /*separator*/
@@ -93,50 +51,30 @@ img
 
 
 /***********************************section crue*/
-#crue
-{
-  color:white;
-  width: 600px;
-  right:0px;
-  top:300px;
-  position: absolute;
-  overflow: hidden;
-  text-align: center;
-  font-family: "Comic Sans MS";
-  background-color: black;
-}
-
-#alerte
-{
-  font-size: 18px;
-}
-
-#description
-{
-  font-size: 15px;
-}
-
-#dateMaj
-{
-  font-style: 18px;
-  font-color: white;
-
+#crue{
+ /* background-image: url('img/fond-box.png');*/
+  width: 100%;
+  border-radius: 0px;
 }
 
 #Vert
 {
+  font-size: 18px;
   color:green;
 }
 #Jaune
 {
+  font-size: 18px;
   color:yellow;
 }
 #Orange
 {
+  font-size: 18px;
   color:orange;
 }
 #Rouge
 {
+  font-size: 18px;
   color:red;
 }
 
@@ -144,10 +82,17 @@ img
 /**************************code des poubelles*/
 #poubelle
 {
-  top:500px;
-  left: 50%;
-  color:white;
-  width: 400px;
-  height: 300px;
+  top:20px;
+  right:800px;
+  position: absolute;
+  color: white;
+ /* background-image: url("img/fond-box.png");*/
 
+}
+
+#titrepoubelle
+{
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
 }

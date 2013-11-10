@@ -32,12 +32,6 @@ def getMonth(mois):
 	12:"Decembre"
 	}[mois]
 
-
-def ecritDate (pagehtml):
-		time = getTime()
-
-		#code pour date
-		pagehtml.write('<div id="horloge"><div id="horloge_heure"> {}:{}</div>\n'.format(time.tm_hour, time.tm_min))
-		pagehtml.write("""<div id="horloge_date">\n
-		 {} {} {} {}</div>""".format(getDay(time.tm_wday),time.tm_mday,getMonth(time.tm_mon),time.tm_year))
-		pagehtml.write('</div>\n')#div de horloge
+def returnDate():
+	time = getTime()
+	return getDay(time.tm_wday),time.tm_mday,getMonth(time.tm_mon),time.tm_year, time.tm_hour, time.tm_min
