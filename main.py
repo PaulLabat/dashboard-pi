@@ -1,4 +1,4 @@
-#! /usr/bin/python3.2
+#! /usr/bin/python2.7
 # -*-coding:Utf-8 -*
 
 from time import sleep
@@ -8,6 +8,7 @@ from date import ecritDate
 from meteo import ecritMeteo
 import html
 from crueseine import ecritCrueSeine
+from poubelles import ecritPoubelles
 
 
 if __name__ == '__main__':
@@ -24,6 +25,8 @@ if __name__ == '__main__':
 			ecritMeteo(pagehtml)
 
 			ecritCrueSeine(pagehtml)
+
+			ecritPoubelles(pagehtml)
 
 			html.ecritFinHtml(pagehtml)
 			pagehtml.close()
