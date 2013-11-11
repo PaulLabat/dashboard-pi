@@ -11,8 +11,8 @@ def recupMeteo():
 
 	indiceDict=0
 	forecast = dict()
-	res = getMeteoYahoo()
-	
+	#res = getMeteoYahoo()
+	res =0
 	
 	if res ==0:
 		tree = ET.parse("orly.xml")
