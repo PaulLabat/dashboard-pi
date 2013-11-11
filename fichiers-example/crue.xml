@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		<title>Vigicrues : Seine moyenne</title>
+		<link>http://www.vigicrues.gouv.fr</link>
+		<description>MEEDDM/DGPR/SRNH/SCHAPI-SPC : Carte de vigilance &#034;crues&#034;</description>
+		<webMaster>vigicrues@developpement-durable.gouv.fr</webMaster>
+		<docs>http://www.vigicrues.gouv.fr/faq.php?rub=19#q_51</docs>
+		<category>vigilance crues</category>
+		<language>fr-fr</language>
+		<image>
+			<title>Vigicrues</title>
+			<link>http://www.vigicrues.gouv.fr</link>
+			<url>http://www.vigicrues.gouv.fr/ftp/cruemax.png</url>
+		</image>
+		<ttl>15</ttl>
+		<item>
+			<title>Seine moyenne : Jaune</title>
+			<link>http://www.vigicrues.gouv.fr/niv_spc.php?idspc=7#IF3</link>
+			<description>&lt;p&gt;Actualisation du site Internet Vigicrues le &lt;i&gt;&lt;b&gt;lundi 11 novembre 2013 à 21h55&lt;/b&gt;.&lt;/i&gt;&lt;/p&gt;
+				&lt;p&gt;Nom du tronçon : &lt;b&gt;Seine moyenne&lt;/b&gt; (IF3)
+				&lt;br /&gt;Couleur de vigilance &#034;crues&#034; du tronçon : &lt;b&gt;Jaune&lt;/b&gt;
+				&lt;br/&gt;Nom du SPC : Seine moyenne-Yonne-Loing&lt;/p&gt;
+				&lt;p&gt;Tenez vous régulièrement informé de la situation.
+				&lt;br /&gt;Abonnez vous à ce flux ou consultez le site &lt;a href=&quot;http://www.vigicrues.gouv.fr&quot; target=&quot;_blank&quot;&gt;Vigicrues&lt;/a&gt;.
+				&lt;br /&gt;Pour plus d&apos;informations sur le fil RSS, cliquez &lt;a href=&quot;http://www.vigicrues.gouv.fr/faq.php?rub=19#q_51&quot; target=&quot;_blank&quot;&gt;ici&lt;/a&gt;.&lt;br /&gt;&lt;/p&gt;</description>
+			<comments>http://www.vigicrues.gouv.fr/niv_spc.php?idspc=7</comments>
+			<pubDate>Mon, 11 Nov 2013 22:44:04 +0100</pubDate>
+		</item>
+	</channel>
+</rss>
