@@ -11,15 +11,41 @@ img
   height: 60px;
   width: 60px;
 }
+/**************************** menu*/
+#menuMeteo
+{
+  width:100px;
+  height: 25px;
+  top:5px;
+  left:5px;
+  position: absolute;
+  background-image:linear-gradient(#dedede, #6e6e6e);
+  text-align: center;
+
+}
+
+#menuPoubelle
+{
+  width:100px;
+  height: 25px;
+  top:5px;
+  left: 105px;
+  position: absolute;
+  background-image:linear-gradient(#6e6e6e, #dedede);
+  text-align: center;
+
+}
 
 /*****************************section meteo*/
 #meteo
 {
-  left             : 20px;
-  top               : 20px;
+  left              : 20px;
+  top               : 60px;
+  width             : 750px;
   position          : absolute;
   overflow          : hidden;
   color             : #FFF;
+  visibility: visible;
 
 }
 
@@ -53,7 +79,6 @@ img
 /***********************************section crue*/
 #crue{
  /* background-image: url('img/fond-box.png');*/
-  width: 100%;
   border-radius: 0px;
 }
 
@@ -82,10 +107,11 @@ img
 /**************************code des poubelles*/
 #poubelle
 {
-  top:20px;
-  right:800px;
+  top:60px;
+  left:60px;
   position: absolute;
   color: white;
+  visibility: hidden;
  /* background-image: url("img/fond-box.png");*/
 
 }

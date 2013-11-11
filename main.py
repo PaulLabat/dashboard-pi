@@ -15,7 +15,7 @@ if __name__ == '__main__':
 		print("runserver")
 		while True:
 			os.system("rm crue.xml") #supp le vieux fichier xml
-			os.system("rm orly.xml")
+			#os.system("rm orly.xml")
 			pagehtml = open("index.html", "w") #fichier qui contient le code
 			html.ecritDebutHtml(pagehtml)
 

@@ -11,7 +11,7 @@ def ecritDebutHtml(pagehtml):
  
     <body>\n
     <script src="script.js"></script>\n
-    
+    <div id="menuMeteo" onCLick="Meteo();">Météo</div> <div id="menuPoubelle" onCLick="Poubelle();">Poubelle</div>
 		""")
 
 

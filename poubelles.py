@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 
 
 def getPoubelles():
-	fichier = open("poubelles.html",'w')
 	dico = dict()
 	i=1
 	try:
