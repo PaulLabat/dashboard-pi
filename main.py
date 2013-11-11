@@ -15,7 +15,7 @@ if __name__ == '__main__':
 		print("runserver")
 		while True:
 			os.system("rm crue.xml") #supp le vieux fichier xml
-			#os.system("rm orly.xml")
+			os.system("rm orly.xml")
 			pagehtml = open("index.html", "w") #fichier qui contient le code
 			html.ecritDebutHtml(pagehtml)
 
@@ -25,7 +25,7 @@ if __name__ == '__main__':
 			html.ecritFinHtml(pagehtml)
 			pagehtml.close()
 			print("sleep\n")
-			sleep(2)#rafraichissement toutes les minutes, a modifier par 60
+			sleep(60)#rafraichissement toutes les minutes, a modifier par 60
 
 
 	elif len(sys.argv) == 2 and sys.argv[1] == "--help":
