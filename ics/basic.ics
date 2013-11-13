@@ -1,0 +1,120 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Collecte des déchets - Secteur Val / Mons / Les quais - 2013
+X-WR-TIMEZONE:Europe/Paris
+X-WR-CALDESC:Dotation\, remplacement et réparation des bacs poubelles - Ser
+ vice propreté urbaine : 01 69 57 80 63 - proprete@portesessonne.fr\n\nTéléc
+ harger le calendrier au format PDF :\nhttp://www.portesessonne.fr/content/d
+ ownload/4945/37848/version/1/file/ESSONNE-Calendrier%20PAV%20ATHIS%20VAL%20
+ 2013.pdf\n\nEn savoir plus sur le tri des déchets : \nhttp://www.portesesso
+ nne.fr/Vivre-et-entreprendre/Dechets/Triez-vos-dechets-menagers
+BEGIN:VTIMEZONE
+TZID:Europe/Paris
+X-LIC-LOCATION:Europe/Paris
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20131128
+DTEND;VALUE=DATE:20131129
+RRULE:FREQ=WEEKLY;UNTIL=20131226;INTERVAL=4;BYDAY=TH
+DTSTAMP:20131113T204006Z
+UID:cvl6pcf8b7mve33eqq18k0hu0s@google.com
+CREATED:20131107T151516Z
+DESCRIPTION:Bois\, ferraille\, gros cartons. \n\nNe sont pas collectés les 
+ pneus\, pots de peinture\, gravats\, déchets de chantier\, sanitaires\, bat
+ teries\, bouteilles de gaz\, appareils électroménagers... Le volume maximum
+  est de 2m3 par enlèvement. N’emballez pas vos petits encombrants dans des 
+ sacs afin que leur nature puisse être contrôlée.
+LAST-MODIFIED:20131108T094145Z
+LOCATION:Athis-Mons
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Poubelles : encombrants
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20131101
+DTEND;VALUE=DATE:20131102
+RRULE:FREQ=WEEKLY;UNTIL=20131230;BYDAY=MO,FR
+DTSTAMP:20131113T204006Z
+UID:rtmb7iluq0curu9bl6cd37o7hc@google.com
+CREATED:20131107T150328Z
+DESCRIPTION:Ordures ménagères : restes alimentaires\, sacs plastiques\, cou
+ ches\, pots et barquettes en plastique ou polystyrène\, mouchoirs en papier
+ ...\nEn cas de doute\, jetez vos déchets dans la poubelle des ordures ménag
+ ères.
+LAST-MODIFIED:20131108T094107Z
+LOCATION:Athis-Mons
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Poubelles : ordures ménagères
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20131112
+DTEND;VALUE=DATE:20131113
+RRULE:FREQ=WEEKLY;UNTIL=20131210;INTERVAL=2;BYDAY=TU
+DTSTAMP:20131113T204006Z
+UID:6hm1cte79t6qag90kd3o3dt55o@google.com
+CREATED:20131107T151833Z
+DESCRIPTION:Maximum 5 fagots attachés (150 cm x 10 cm) et 5 sacs ouverts de
+  100 litres.
+LAST-MODIFIED:20131108T094042Z
+LOCATION:Athis-Mons
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Poubelles : déchets végétaux
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20131106
+DTEND;VALUE=DATE:20131107
+RRULE:FREQ=WEEKLY;UNTIL=20131225;BYDAY=WE
+DTSTAMP:20131113T204006Z
+UID:4nkadsc5r9h035b4uo9hv9rfac@google.com
+CREATED:20131107T150523Z
+DESCRIPTION:Bouteilles et flacons plastiques\, boîtes et emballages en cart
+ on\, briques\, boites de conserve\, bombes aérosols\, canettes et barquette
+ s en aluminium\, journaux\, magazines et prospectus\, annuaires\, papiers d
+ ’écriture\, enveloppes blanches.
+LAST-MODIFIED:20131108T094019Z
+LOCATION:Athis-Mons
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Poubelles : emballages et papiers
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20131114
+DTEND;VALUE=DATE:20131115
+RRULE:FREQ=WEEKLY;UNTIL=20131226;INTERVAL=2;BYDAY=TH
+DTSTAMP:20131113T204006Z
+UID:nfq1vhgco9n2rf9acpu8ub4rpc@google.com
+CREATED:20131107T150654Z
+DESCRIPTION:Bocaux\, bouteilles\, flacons.\n\nAttention\, tous ces déchets 
+ (emballages\, papiers et verre) doivent être mis directement dans le bac po
+ ubelle sans sac plastique.
+LAST-MODIFIED:20131108T093945Z
+LOCATION:Athis-Mons
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:Poubelles : verre
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

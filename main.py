@@ -7,6 +7,7 @@ import help
 from meteo import ecritMeteo
 import html
 from poubelles import ecritPoubelles
+from calendar import ecritCalendar
 
 
 if __name__ == '__main__':
@@ -21,7 +22,7 @@ if __name__ == '__main__':
 
 			ecritMeteo(pagehtml)
 			ecritPoubelles(pagehtml)
-
+			ecritCalendar(pagehtml)
 			html.ecritFinHtml(pagehtml)
 			pagehtml.close()
 			print("sleep\n")
