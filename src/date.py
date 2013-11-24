@@ -32,6 +32,20 @@ def getMonth(mois):
 	12:"Decembre"
 	}[mois]
 
+def compareDate(date):
+	dateSplit = date.split("-")
+	time = getTime()
+	egale = False
+	if dateSplit[0] > str(time.tm_year):
+		egale = True
+	elif (dateSplit[0] == str(time.tm_year)) and (dateSplit[1] > str(time.tm_mon)):
+		egale = True
+	elif (dateSplit[0] == str(time.tm_year)) and (dateSplit[1] == str(time.tm_mon)) and (dateSplit[2] >= str(time.tm_mday)):
+		egale = True
+
+	return egale
+
+
 def returnDate():
 	time = getTime()
 	return getDay(time.tm_wday),time.tm_mday,getMonth(time.tm_mon),time.tm_year, time.tm_hour, time.tm_min
