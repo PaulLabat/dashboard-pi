@@ -41,6 +41,11 @@ Mettre details de la météo dans un onglet cliquable qui fait disparaitre les p
 Rajouter http://france.meteofrance.com/vigilance/Bulletin?ZONE=DEPT91&ORIGIN=A : permet de savoir le type de vigilance météo
 
 
+Ajouter les vigilances météo:
+http://vigilance.meteofrance.com/
+essonnes : http://vigilance.meteofrance.com/Bulletin_sans.html?a=dept91&b=1&c=
+
+
 Permet de connaitre la température du rpi
 /opt/vc/bin/vcgencmd measure_temp
 

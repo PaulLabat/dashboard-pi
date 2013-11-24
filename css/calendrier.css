@@ -1,0 +1,27 @@
+#menuCalendar
+{
+  width:100px;
+  height: 25px;
+  top:5px;
+  left: 205px;
+  position: absolute;
+  background-image:linear-gradient(#6e6e6e, #dedede);
+  text-align: center;
+
+}
+
+#calendar
+{
+  top: 60px;
+  left: 60px;
+  position: absolute;
+  color: white;
+  visibility: hidden;
+}
+
+#titrecalendar
+{
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+}

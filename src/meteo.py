@@ -2,6 +2,7 @@
 from os import system
 import xml.etree.ElementTree as ET
 from crueseine import recupAlerte, getDescription
+from date import returnDate
 
 def getMeteoYahoo():
 	return system('curl "http://weather.yahooapis.com/forecastrss?w=22144181&u=c" >> orly.xml')
@@ -52,10 +53,11 @@ def ecritMeteo(pagehtml):
 	i=1
 	condition,wind,atmospher,astronomy,forecast = recupMeteo()
 	alerte, dateMaj = recupAlerte()
+	wday,mday,month,year,hour, minut = returnDate()
 
 
 	pagehtml.write('<div id="meteo">\n')
-	pagehtml.write('<div id="headmeteo">Aéroport Paris Orly</div>\n')
+	pagehtml.write('<div id="headmeteo">{} {} {} {} {}:{}</div>\n'.format(wday,mday,month,year,hour, minut))
 	#debut ecriture des prévisions
 	pagehtml.write('<div id="forecast"><h2>Prévisions</h2>\n')
 
@@ -71,7 +73,7 @@ def ecritMeteo(pagehtml):
 	pagehtml.write('<table>\n<tr>\n')
 	pagehtml.write("<td>{}°\n".format(condition["temp"]))
 	pagehtml.write("</td>\n")
-	pagehtml.write('<td><img src="img/meteo/{}.png"/></td>\n'.format(condition["code"]))
+	pagehtml.write('<td><img src="../img/meteo/{}.png"/></td>\n'.format(condition["code"]))
 	pagehtml.write('</tr>\n</table>\n')
 	pagehtml.write("</td>\n</tr>\n</table>\n")
 	pagehtml.write("</td>\n")
@@ -94,7 +96,7 @@ def ecritMeteo(pagehtml):
 		pagehtml.write('<td>{}°</td>'.format(forecast[i]["low"]))
 		pagehtml.write("</tr>\n</table>\n")
 		pagehtml.write("</td>\n")
-		pagehtml.write('<td><img src="img/meteo/{}.png"/></td>\n'.format(forecast[i]["code"]))
+		pagehtml.write('<td><img src="../img/meteo/{}.png"/></td>\n'.format(forecast[i]["code"]))
 		pagehtml.write('</tr>\n</table>\n')
 		pagehtml.write("</td>\n</tr>\n</table>\n")
 		pagehtml.write("</td>\n")
@@ -111,17 +113,27 @@ def ecritMeteo(pagehtml):
 	pagehtml.write("</td>\n</tr>\n")
 	pagehtml.write('</table>\n')
 	pagehtml.write('</div>\n')
-	#code pour le detail du jour
+
+	######################################code pour le detail du jour
 	pagehtml.write('<div id="details"> <h2> Détails</h2>\n')
-	pagehtml.write("<table>\n")
-	pagehtml.write('<tr>\n<td>Température ressentie</td> <td><b>{}°</b></td> <td>Humidité</td> <td><b>{} %</b></td>\n</tr>\n'.format(wind["chill"], atmospher["humidity"]))
-	pagehtml.write('<tr>\n<td>Vent</td> <td><b>{} km/h</b></td> <td>Direction</td> <td><b>{}</b></td>\n</tr>\n'.format(wind["speed"],wind["direction"]))
-	pagehtml.write('<tr>\n<td>Visibilité</td> <td><b>{} km</b></td> <td>Pression</td> <td><b>{} mBar</b></td>\n</tr>\n'.format(atmospher["visibility"],atmospher["pressure"]))
-	pagehtml.write('<tr>\n<td>Levé</td> <td><b>{}</b></td> <td>Couché</td> <td><b>{}</b></td>\n</tr>\n'.format(astronomy["sunrise"],astronomy["sunset"]))
-	pagehtml.write("</table>\n")
+	#pagehtml.write("<table>\n")
+	#pagehtml.write('<tr>\n<td>Température ressentie</td> <td><b>{}°</b></td> <td>Humidité</td> <td><b>{} %</b></td>\n</tr>\n'.format(wind["chill"], atmospher["humidity"]))
+	#pagehtml.write('<tr>\n<td>Vent</td> <td><b>{} km/h</b></td> <td>Direction</td> <td><b>{}</b></td>\n</tr>\n'.format(wind["speed"],wind["direction"]))
+	#pagehtml.write('<tr>\n<td>Visibilité</td> <td><b>{} km</b></td> <td>Pression</td> <td><b>{} mBar</b></td>\n</tr>\n'.format(atmospher["visibility"],atmospher["pressure"]))
+	#pagehtml.write('<tr>\n<td>Levé</td> <td><b>{}</b></td> <td>Couché</td> <td><b>{}</b></td>\n</tr>\n'.format(astronomy["sunrise"],astronomy["sunset"]))
+	#pagehtml.write("</table>\n")
+
+	pagehtml.write('<div id="tp">Température ressentie : <b>{}°</b></div>\n'.format(wind["chill"]))
+	pagehtml.write('<div id="humidite">Humidité : <b>{} %</b></div>\n'.format(atmospher["humidity"]))
+	pagehtml.write('<div id="vent">Vent : <b>{} km/h</b></div>\n'.format(wind["speed"]))
+	pagehtml.write('<div id="direction">Direction : <b>{}</b></div>\n'.format(wind["direction"]))
+	pagehtml.write('<div id="visibilite">Visibilité : <b>{} km</b></div>\n'.format(atmospher["visibility"]))
+	pagehtml.write('<div id="pression">Pression : <b>{} mBar</b></div>\n'.format(atmospher["pressure"]))
+	pagehtml.write('<div id="heureSoleil">Levé : <b>{}</b> Couché : <b>{}</b></div>\n'.format(astronomy["sunrise"], astronomy["sunset"]))
+	
 	pagehtml.write('</div>\n')
 
-	#ecriture de la vigilance crue de la seine
+	######################################ecriture de la vigilance crue de la seine
 	pagehtml.write('<div id="crue"><h2>Crue de la Seine</h2>')
 	pagehtml.write('<table>\n<tr><td><div id="{}">{}</div></td></tr>\n<tr><td>{}</td></tr>\n</table>\n'.format(alerte,getDescription(alerte),dateMaj))
 	pagehtml.write("</div>\n")#div fin crue

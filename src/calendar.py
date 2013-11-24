@@ -23,7 +23,7 @@ def getNextEvent(fichier):
 	return fiveDay
 
 def ecritCalendar(pagehtml):
-	fiveDay = getNextEvent('ics/paul.ics')
+	fiveDay = getNextEvent('../ics/paul.ics')
 	pagehtml.write('<div id="calendar">\n<div id="titrecalendar">Prochains rendez-vous</div><br>\n')
 	for elem in fiveDay.keys():
 		pagehtml.write("{} le {} à {} jusqu'au {} à {} lieu : {}<br>\n".format(fiveDay[elem]["summary"], fiveDay[elem]["dstart"],fiveDay[elem]["tstart"], fiveDay[elem]["dend"],fiveDay[elem]["tend"], fiveDay[elem]["location"]))
