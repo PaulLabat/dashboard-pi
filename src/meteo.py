@@ -93,7 +93,7 @@ def ecritMeteo(pagehtml):
 		pagehtml.write("<table>\n<tr>\n")
 		pagehtml.write('<td>{}°</td>'.format(forecast[i]["high"]))
 		pagehtml.write('</tr>\n<tr>\n')
-		pagehtml.write('<td>{}°</td>'.format(forecast[i]["low"]))
+		pagehtml.write('<td><b>{}°</b></td>'.format(forecast[i]["low"]))
 		pagehtml.write("</tr>\n</table>\n")
 		pagehtml.write("</td>\n")
 		pagehtml.write('<td><img src="../img/meteo/{}.png"/></td>\n'.format(forecast[i]["code"]))
@@ -134,8 +134,8 @@ def ecritMeteo(pagehtml):
 	pagehtml.write('</div>\n')
 
 	######################################ecriture de la vigilance crue de la seine
-	pagehtml.write('<div id="crue"><h2>Crue de la Seine</h2>')
-	pagehtml.write('<table>\n<tr><td><div id="{}">{}</div></td></tr>\n<tr><td>{}</td></tr>\n</table>\n'.format(alerte,getDescription(alerte),dateMaj))
+	pagehtml.write('<div id="crue"><h2>Seine</h2>')
+	pagehtml.write('<table>\n<tr><td><div id="{}">{}</div></td></tr></table>\n'.format(alerte,getDescription(alerte),dateMaj))
 	pagehtml.write("</div>\n")#div fin crue
 
 	pagehtml.write("</div>\n")#div fin meteo
