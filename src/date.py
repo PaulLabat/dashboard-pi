@@ -19,7 +19,7 @@ def getDay(day):
 def getMonth(mois):
 	return{
 	1:"Janvier",
-	2:"Févirer",
+	2:"Février",
 	3:"Mars",
 	4:"Avril",
 	5:"Mai",
