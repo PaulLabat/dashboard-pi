@@ -123,14 +123,6 @@ def ecritMeteo(pagehtml):
 	pagehtml.write('<tr>\n<td>Levé</td> <td><b>{}</b></td> <td>Couché</td> <td><b>{}</b></td>\n</tr>\n'.format(astronomy["sunrise"],astronomy["sunset"]))
 	pagehtml.write("</table>\n")
 
-	#pagehtml.write('<div id="tp">Température ressentie : <b>{}°</b></div>\n'.format(wind["chill"]))
-	#pagehtml.write('<div id="humidite">Humidité : <b>{} %</b></div>\n'.format(atmospher["humidity"]))
-	#pagehtml.write('<div id="vent">Vent : <b>{} km/h</b></div>\n'.format(wind["speed"]))
-	#pagehtml.write('<div id="direction">Direction : <b>{}</b></div>\n'.format(wind["direction"]))
-	#pagehtml.write('<div id="visibilite">Visibilité : <b>{} km</b></div>\n'.format(atmospher["visibility"]))
-	#pagehtml.write('<div id="pression">Pression : <b>{} mBar</b></div>\n'.format(atmospher["pressure"]))
-	#pagehtml.write('<div id="heureSoleil">Levé : <b>{}</b> Couché : <b>{}</b></div>\n'.format(astronomy["sunrise"], astronomy["sunset"]))
-	
 	pagehtml.write('</div>\n')
 
 	######################################ecriture de la vigilance crue de la seine
