@@ -2,8 +2,6 @@
 {
   width:100px;
   height: 25px;
-  top:5px;
-  left: 105px;
   position: absolute;
   background-image:linear-gradient(#dedede, #6e6e6e);
   text-align: center;
@@ -12,18 +10,14 @@
 
 #poubelle
 {
-  top:60px;
-  left:60px;
   position: absolute;
-  color: white;
+  overflow: hidden;
   visibility: hidden;
- /* background-image: url("img/fond-box.png");*/
-
 }
 
 #titrepoubelle
 {
   font-size: 25px;
-  text-align: center;
-  font-weight: bold;
+  font-weight:bold;
+  height:40px;
 }
