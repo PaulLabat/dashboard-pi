@@ -12,10 +12,6 @@ def ecritDebutHtml(pagehtml):
     <!-- Custom styles for this template -->\n
     <link href="../css/dashboard.css" rel="stylesheet">\n
     <link rel="stylesheet" type="text/css" href="../css/style.css" />\n
-    <link rel="stylesheet" type="text/css" href="../css/meteo.css" />\n
-    <link rel="stylesheet" type="text/css" href="../css/crue.css" />\n
-    <link rel="stylesheet" type="text/css" href="../css/poubelle.css" />\n
-
   </head>\n
 
   <body>\n
@@ -33,9 +29,8 @@ def ecritDebutHtml(pagehtml):
         </div>\n
         <div class="navbar-collapse collapse">\n
           <ul class="nav navbar-nav navbar-right">\n
-            <li><a href="#meteo" >Météo</a></li>\n
-            <li><a href="#crue">Crue</a></li>\n
-            <li><a href="#poubelle">Poubelles</a></li>\n
+            <li><a href="index.html">Athis-Mons</a></li>\n
+            <li><a href="maucloup.html">Maucloup</a></li>\n
           </ul>\n
         </div>\n
       </div>\n

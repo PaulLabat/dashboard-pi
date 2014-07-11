@@ -2,33 +2,39 @@
 # -*-coding:Utf-8 -*
 
 from time import sleep
-import sys, os, help
-import help
+import sys, os
 from meteo import ecritMeteo
+from crue import ecritCrue
 import html
 from poubelles import ecritPoubelles
 
 
 if __name__ == '__main__':
 	#appel du programme principal
-	if len(sys.argv) == 2 and sys.argv[1] == "runserver": #si ya un argument on execute le code
-		print("runserver")
-		while True:
-			os.system("rm crue.xml") #supp le vieux fichier xml
-			os.system("rm orly.xml")
-			pagehtml = open("index.html", "w") #fichier qui contient le code
-			html.ecritDebutHtml(pagehtml)
+	woeidAthis = "22144181"
+	woeidMaucloup = "595357"
+	athis = "Athis-Mons"
+	maucloup = "Maucloup"
+	crueCodeSeine = "IF3"
+	seine = "Seine"
+	vienne = "Vienne"
+	crueCodeVienne = "VT6"
 
-			ecritMeteo(pagehtml)
-			ecritPoubelles(pagehtml)
-			html.ecritFinHtml(pagehtml)
-			pagehtml.close()
-			print("sleep\n")
-			sleep(60)#rafraichissement toutes les minutes, a modifier par 60
+	while True:
+		pagehtml = open("index.html", "w") #fichier qui contient le code
+		html.ecritDebutHtml(pagehtml)
+		ecritMeteo(pagehtml, woeidAthis, athis)
+		ecritCrue(pagehtml,crueCodeSeine, seine)
+		ecritPoubelles(pagehtml)
+		html.ecritFinHtml(pagehtml)
+		pagehtml.close()
 
+		pagehtml = open("maucloup.html", "w") #fichier qui contient le code
+		html.ecritDebutHtml(pagehtml)
+		ecritMeteo(pagehtml, woeidMaucloup, maucloup)
+		ecritCrue(pagehtml,crueCodeVienne, vienne)
+		html.ecritFinHtml(pagehtml)
+		pagehtml.close()
 
-	elif len(sys.argv) == 2 and sys.argv[1] == "--help":
-		help.help()
-
-	else:
-		print("Voir './main.py --help'")
+		print("sleep\n")
+		sleep(3600)#rafraichissement toutes les heures

@@ -7,3 +7,23 @@ img
   height: 60px;
   width: 60px;
 }
+#Vert
+{
+  font-size: 18px;
+  color:green;
+}
+#Jaune
+{
+  font-size: 18px;
+  color:yellow;
+}
+#Orange
+{
+  font-size: 18px;
+  color:orange;
+}
+#Rouge
+{
+  font-size: 18px;
+  color:red;
+}

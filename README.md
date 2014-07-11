@@ -14,4 +14,4 @@ Debian/Ubuntu:
 
 ## Utilisation
 Il suffit de lancer la commande suivante (tout type d'OS):
-    ./main.py runserver
+    ./main.py

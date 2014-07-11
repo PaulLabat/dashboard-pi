@@ -2,17 +2,17 @@
 import os
 import xml.etree.ElementTree as ET
 
-def getFichier():
-	"""Recupère le fichier de vigilance de crue de la seine"""
-	res = os.system('curl http://www.vigicrues.gouv.fr/rss/?codeTron=IF3 >>crue.xml')
+def getFichier(code):
+	"""Recupère le fichier de vigilance de crue"""
+	res = os.system('curl http://www.vigicrues.gouv.fr/rss/?codeTron='+code+'>crue.xml')
 	return res # retourne le code d'erreur de la commande
 	
 
-def recupAlerte():
+def recupAlerte(code):
 	itemTrouve = False
 	niveauAlerte = ""
 	dateMaj = ""
-	res = getFichier()
+	res = getFichier(code)
 	if res == 0:
 
 		tree = ET.parse("crue.xml")
@@ -43,3 +43,8 @@ def getDescription(niveauAlerte):
 	"Jaune":"Risque de crue ou de montée rapide des eaux n'entraînant pas de dommages significatifs, mais nécessitant une vigilance particulière dans le cas d'activités saisonnières et/ou exposées.",
 	"Vert":"Pas de vigilance particulière requise"
 	}[niveauAlerte]
+
+def ecritCrue(pagehtml, code, fleuve):
+	alerte, dateMaj = recupAlerte(code)
+	pagehtml.write('<h2 class="sub-header">'+fleuve+'</h2>')
+	pagehtml.write('<span id="{}">{}</span>\n<br>{}\n'.format(alerte,getDescription(alerte),dateMaj))
