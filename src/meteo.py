@@ -46,7 +46,7 @@ def ecritMeteo(pagehtml, woeid, city):
 	i=1
 	condition,wind,atmospher,astronomy,forecast = recupMeteo(woeid)
 	pagehtml.write('<h1 class="header">'+city+'</h1>')
-	pagehtml.write('<h2 class="sub-header">Prévisions</h2>\n')
+	pagehtml.write('<h3 class="sub-header">Prévisions</h3>\n')
 	pagehtml.write('<table>\n<tr>\n')#debut du tableau qui englobe tout
 
 	#prev aujourd'hui
@@ -78,7 +78,7 @@ def ecritMeteo(pagehtml, woeid, city):
 		pagehtml.write("<table>\n<tr>\n")
 		pagehtml.write('<td> {}° </td>'.format(forecast[i]["high"]))
 		pagehtml.write('</tr>\n<tr>\n')
-		pagehtml.write('<td><b> {}° </b></td>'.format(forecast[i]["low"]))
+		pagehtml.write('<td><span class="color"> {}° </span></td>'.format(forecast[i]["low"]))
 		pagehtml.write("</tr>\n</table>\n")
 		pagehtml.write("</td>\n")
 		pagehtml.write('<td><img src="../img/meteo/{}.png"/></td>\n'.format(forecast[i]["code"]))
@@ -94,11 +94,11 @@ def ecritMeteo(pagehtml, woeid, city):
 	pagehtml.write('</table>\n')#table englobante fin
 
 	#******************************Details
-	pagehtml.write('<h2 class="sub-header">Détails</h2>\n')
+	pagehtml.write('<h3 class="sub-header">Détails</h3>\n')
 	pagehtml.write('<table class="table table-striped" style="width:720px;">\n')
-	pagehtml.write('<tr>\n<td>Température ressentie</td> <td><b>{}°</b></td> <td>Humidité</td> <td><b>{} %</b></td>\n</tr>\n'.format(wind["chill"], atmospher["humidity"]))
-	pagehtml.write('<tr>\n<td>Vent</td> <td><b>{} km/h</b></td> <td>Direction</td> <td><b>{}</b></td>\n</tr>\n'.format(wind["speed"],wind["direction"]))
-	pagehtml.write('<tr>\n<td>Visibilité</td> <td><b>{} km</b></td> <td>Pression</td> <td><b>{} mBar</b></td>\n</tr>\n'.format(atmospher["visibility"],atmospher["pressure"]))
-	pagehtml.write('<tr>\n<td>Levé</td> <td><b>{}</b></td> <td>Couché</td> <td><b>{}</b></td>\n</tr>\n'.format(astronomy["sunrise"],astronomy["sunset"]))
+	pagehtml.write('<tr>\n<td>Température ressentie</td> <td><span class="color">{}°</span></td> <td>Humidité</td> <td><span class="color">{} %</span></td>\n</tr>\n'.format(wind["chill"], atmospher["humidity"]))
+	pagehtml.write('<tr>\n<td>Vent</td> <td><span class="color">{} km/h</span></td> <td>Direction</td> <td><span class="color">{}</span></td>\n</tr>\n'.format(wind["speed"],wind["direction"]))
+	pagehtml.write('<tr>\n<td>Visibilité</td> <td><span class="color">{} km</span></td> <td>Pression</td> <td><span class="color">{} mBar</span></td>\n</tr>\n'.format(atmospher["visibility"],atmospher["pressure"]))
+	pagehtml.write('<tr>\n<td>Levé</td> <td><span class="color">{}</span></td> <td>Couché</td> <td><span class="color">{}</span></td>\n</tr>\n'.format(astronomy["sunrise"],astronomy["sunset"]))
 	pagehtml.write("</table>\n")
 	

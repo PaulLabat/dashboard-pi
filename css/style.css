@@ -1,7 +1,6 @@
-b{
+.color{
   color: #3f9bec;
 }
-
 img
 {
   height: 60px;
@@ -9,21 +8,22 @@ img
 }
 #Vert
 {
-  font-size: 18px;
+  font-size: 14px;
   color:green;
 }
 #Jaune
 {
-  font-size: 18px;
+  font-size: 14px;
   color:yellow;
 }
 #Orange
 {
-  font-size: 18px;
+  font-size: 14px;
   color:orange;
 }
 #Rouge
 {
-  font-size: 18px;
+  font-size: 14px;
   color:red;
 }
+

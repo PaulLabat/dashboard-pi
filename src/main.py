@@ -7,6 +7,7 @@ from meteo import ecritMeteo
 from crue import ecritCrue
 import html
 from poubelles import ecritPoubelles
+from date import ecritDate
 
 
 if __name__ == '__main__':
@@ -26,15 +27,17 @@ if __name__ == '__main__':
 		ecritMeteo(pagehtml, woeidAthis, athis)
 		ecritCrue(pagehtml,crueCodeSeine, seine)
 		ecritPoubelles(pagehtml)
+		ecritDate(pagehtml)
 		html.ecritFinHtml(pagehtml)
 		pagehtml.close()
 
-		pagehtml = open("maucloup.html", "w") #fichier qui contient le code
-		html.ecritDebutHtml(pagehtml)
-		ecritMeteo(pagehtml, woeidMaucloup, maucloup)
-		ecritCrue(pagehtml,crueCodeVienne, vienne)
-		html.ecritFinHtml(pagehtml)
-		pagehtml.close()
+		#pagehtml = open("maucloup.html", "w") #fichier qui contient le code
+		#html.ecritDebutHtml(pagehtml)
+		#ecritMeteo(pagehtml, woeidMaucloup, maucloup)
+		#ecritCrue(pagehtml,crueCodeVienne, vienne)
+		#ecritDate(pagehtml)
+		#html.ecritFinHtml(pagehtml)
+		#pagehtml.close()
 
 		print("sleep\n")
 		sleep(3600)#rafraichissement toutes les heures
