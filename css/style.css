@@ -6,24 +6,20 @@ img
   height: 60px;
   width: 60px;
 }
-#Vert
+.Vert
 {
-  font-size: 14px;
   color:green;
 }
-#Jaune
+.Jaune
 {
-  font-size: 14px;
-  color:yellow;
+  color:#ffd800;
 }
-#Orange
+.Orange
 {
-  font-size: 14px;
   color:orange;
 }
-#Rouge
+.Rouge
 {
-  font-size: 14px;
   color:red;
 }
 

@@ -15,10 +15,11 @@ def recupPrevision():
 		f.close()
 		title = soup.find_all('title')[1].string.encode('utf-8')
 		description = soup.find_all('description')[1].string.encode('utf-8')
-	return title, description,
+		pubdate = soup.find('pubdate').string.encode('utf-8')
+	return title, description, pubdate
 
 def ecritTraficRer(html):
-	title, description = recupPrevision()
+	title, description, pubdate = recupPrevision()
 	html.write('<h3 class="sub-header">{}</h3>\n'.format(title))
-	html.write(description)
+	html.write('{}<br><span style="font-size:10px;">{}</span>\n'.format(description,pubdate))
 

@@ -47,4 +47,4 @@ def getDescription(niveauAlerte):
 def ecritCrue(pagehtml, code, fleuve):
 	alerte, dateMaj = recupAlerte(code)
 	pagehtml.write('<h3 class="sub-header">'+fleuve+'</h3>')
-	pagehtml.write('<span id="{}">{}</span>\n<br><span style="font-size:10px;">{}</span>\n'.format(alerte,getDescription(alerte),dateMaj))
+	pagehtml.write('<span class="{}">{}</span>\n<br><span style="font-size:10px;">{}</span>\n'.format(alerte,getDescription(alerte),dateMaj))
