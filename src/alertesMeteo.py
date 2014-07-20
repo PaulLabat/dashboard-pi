@@ -13,7 +13,6 @@ def getVigilance(departement):
 		elif departement == 'haute_vienne':
 			url = urllib2.urlopen('http://www.meteoalarm.eu/fr_FR/0/0/FR019-Haute_Vienne.html')
 	except IOError:
-		print("Impossible de récupérer les données pour la vigilance meteo.")
 		vigilance = "Impossible de récupérer les données pour la vigilance meteo."
 	else:
 		soup = BeautifulSoup(url.read())
@@ -28,7 +27,6 @@ def getVigilance(departement):
 	return vigilance, date
 
 def getColor(vigilance):
-	print(vigilance.find('Jaune'))
 	if vigilance.find('Jaune') != -1:
 		return 'Jaune'
 	elif vigilance.find('Rouge')!= -1:

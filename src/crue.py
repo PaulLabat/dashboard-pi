@@ -28,7 +28,7 @@ def recupAlerte(code):
 				if(elem.tag == "title"):
 					niveauAlerte = elem.text
 
-		niveauAlerte = niveauAlerte.split()[3] #recup le dernier element qui est la couleur de l'alerte
+		niveauAlerte = niveauAlerte.split(' ')[3] #recup le dernier element qui est la couleur de l'alerte
 
 	else:
 		print("Erreur de récupération du fichier crue.xml depuis le web")
