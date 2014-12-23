@@ -53,6 +53,6 @@ def correctionMinute(min):
 
 def ecritDate(html):
 	time = getTime()
-	html.write('<div class="footer navbar-default navbar navbar-fixed-bottom">\n<div class="container">\n<span class="navbar-text">\n')
+	html.write('<br><br><br><div class="footer navbar-default navbar navbar-fixed-bottom">\n<div class="container">\n<span class="navbar-text">\n')
 	html.write('{} {} {} {} à {}:{}'.format(getDay(time.tm_wday),time.tm_mday,getMonth(time.tm_mon),time.tm_year, time.tm_hour, correctionMinute(time.tm_min)))
 	html.write('</span>\n</div>\n</div>\n')
