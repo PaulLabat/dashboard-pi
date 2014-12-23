@@ -8,7 +8,7 @@ def ecritDebutHtml(pagehtml):
     <meta name="viewport" content="width=device-width, initial-scale=1">\n
     <title>Dashboard</title>\n
     <!-- Bootstrap core CSS -->\n
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">\n
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">\n
     <!-- Custom styles for this template -->\n
     <link href="../css/dashboard.css" rel="stylesheet">\n
     <link rel="stylesheet" type="text/css" href="../css/style.css" />\n
@@ -43,8 +43,8 @@ def ecritDebutHtml(pagehtml):
 
 def ecritFinHtml(pagehtml):
 	pagehtml.write("""\n</div>\n
-    <script src="../javascript/jquery.min.js"></script>\n
-    <script src="../bootstrap/js/bootstrap.min.js"></script>\n
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>\n
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>\n
   </body>\n
 </html>\n
 """)
