@@ -26,7 +26,7 @@ if __name__ == '__main__':
 		pagehtml = open("index.html", "w") #fichier qui contient le code
 		html.ecritDebutHtml(pagehtml)
 		ecritMeteo(pagehtml, woeidAthis, athis)
-		ecritVigilance('essonne',pagehtml)
+		ecritVigilance(91,pagehtml)
 		ecritCrue(pagehtml,crueCodeSeine, seine)
 		ecritTraficRer(pagehtml)
 		ecritPoubelles(pagehtml)
@@ -37,7 +37,7 @@ if __name__ == '__main__':
 		pagehtml = open("maucloup.html", "w") #fichier qui contient le code
 		html.ecritDebutHtml(pagehtml)
 		ecritMeteo(pagehtml, woeidMaucloup, maucloup)
-		ecritVigilance('haute_vienne',pagehtml)
+		ecritVigilance(87,pagehtml)
 		ecritCrue(pagehtml,crueCodeVienne, vienne)
 		ecritDate(pagehtml)
 		html.ecritFinHtml(pagehtml)
