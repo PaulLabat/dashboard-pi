@@ -10,7 +10,6 @@ def getVigilance(departement):
 	
 	url = 'http://api.domogeek.fr/vigilance/'+str(departement)+'/all'
 	res, error = subprocess.Popen(['curl',url], stdout = subprocess.PIPE).communicate()
-	print(res)
 	if error is None:
 		try:
 			data = json.loads(res)
@@ -24,8 +23,6 @@ def getVigilance(departement):
 def ecritVigilance(departement, html):
 	url = "http://vigilance.meteofrance.com/Bulletin_sans.html?a=dept"+str(departement)+"&b=2&c="
 	vigilanceColor, vigilanceRisk = getVigilance(departement)
-	html.write('<h3 class="sub-header"><a href="{}">Vigilance météo</a></h3>\n'.format(url))
 	if vigilanceRisk is not None and vigilanceColor is not None:
+		html.write('<h3 class="sub-header"><a href="{}">Vigilance météo</a></h3>\n'.format(url))
 		html.write('<span class="{}">Vigilance : {}</span><br>Risque : {}<br>'.format(vigilanceColor,vigilanceColor, vigilanceRisk))
-	else:
-		html.write('Problème de récupération de la vigilance météo.<br>')

@@ -1,40 +1,30 @@
 # -*-coding:Utf-8 -*
-import os
-import xml.etree.ElementTree as ET
-
-def getFichier(code):
-	"""Recupère le fichier de vigilance de crue"""
-	res = os.system('curl http://www.vigicrues.gouv.fr/rss/?codeTron='+code+'>crue.xml')
-	return res # retourne le code d'erreur de la commande
-	
+from bs4 import BeautifulSoup
+import subprocess
 
 def recupAlerte(code):
-	itemTrouve = False
 	niveauAlerte = ""
 	dateMaj = ""
-	res = getFichier(code)
-	if res == 0:
 
-		tree = ET.parse("crue.xml")
-		root = tree.getroot()
-		for elem in root.getiterator():
-			if(elem.tag == "item"):
-				itemTrouve = True
+	url = 'http://www.vigicrues.gouv.fr/rss/?codeTron='+str(code)
+	res, error = subprocess.Popen(['curl',url], stdout = subprocess.PIPE).communicate()
 
-			elif(elem.tag == "pubDate"):
-				dateMaj = elem.text
+	if error is None:
+		soup = BeautifulSoup(res)
+		title = soup.find_all('title')[2]
+		title = str(title)
+		title = title.split(' ')[3]
+		niveauAlerte = title.replace('</title>','')
 
-			if(itemTrouve):
-				if(elem.tag == "title"):
-					niveauAlerte = elem.text
-
-		niveauAlerte = niveauAlerte.split(' ')[3] #recup le dernier element qui est la couleur de l'alerte
+		date = soup.find_all('pubdate')[0]
+		date = str(date)
+		dateMaj = date.replace('<pubdate>','')
+		dateMaj = date.replace('</pubdate>','')
+		return niveauAlerte, dateMaj
 
 	else:
-		print("Erreur de récupération du fichier crue.xml depuis le web")
-
-	return niveauAlerte, dateMaj
-
+		print("Erreur de récupération de l'alerte crue")
+		return None, None
 
 def getDescription(niveauAlerte):
 	return{
@@ -46,5 +36,6 @@ def getDescription(niveauAlerte):
 
 def ecritCrue(pagehtml, code, fleuve):
 	alerte, dateMaj = recupAlerte(code)
-	pagehtml.write('<h3 class="sub-header">'+fleuve+'</h3>')
-	pagehtml.write('<span class="{}">{}</span>\n<br><span style="font-size:10px;">{}</span>\n'.format(alerte,getDescription(alerte),dateMaj))
+	if alerte is not None and dateMaj is not None:
+		pagehtml.write('<h3 class="sub-header">'+fleuve+'</h3>')
+		pagehtml.write('<span class="{}">{}</span>\n<br><span style="font-size:10px;">{}</span>\n'.format(alerte,getDescription(alerte),dateMaj))

@@ -1,18 +1,13 @@
 # -*-coding:Utf-8 -*
 
-
-from os import system
+import subprocess
 from bs4 import BeautifulSoup
 
-def getPresivion():
-	return system('curl http://www.transilien.com/flux/rss/traficLigne?codeLigne=C > rer.xml')
-
 def recupPrevision():
-	res = getPresivion()
-	if res == 0:
-		f = open('rer.xml','r')
-		soup = BeautifulSoup(f.read())
-		f.close()
+	res, error = subprocess.Popen(['curl','http://www.transilien.com/flux/rss/traficLigne?codeLigne=C'], stdout = subprocess.PIPE).communicate()
+
+	if error is None:
+		soup = BeautifulSoup(res)
 		tmp = soup.find_all('title')
 		if len(tmp) == 2:
 			title = tmp[1].string.encode('utf-8')
@@ -29,10 +24,15 @@ def recupPrevision():
 			pubdate = tmp.string.encode('utf-8')
 		else:
 			pubdate = ""
-	return title, description, pubdate
+		return title, description, pubdate
+	else:
+		print('Erreur de récupération des prévisions de la ligne C')
+		return None,None,None
+	
 
 def ecritTraficRer(html):
 	title, description, pubdate = recupPrevision()
-	html.write('<h3 class="sub-header">{}</h3>\n'.format(title))
-	html.write('{}<br><span style="font-size:10px;">{}</span>\n'.format(description,pubdate))
+	if title is not None and description is not None and pubdate is not None:
+		html.write('<h3 class="sub-header">{}</h3>\n'.format(title))
+		html.write('{}<br><span style="font-size:10px;">{}</span>\n'.format(description,pubdate))
 
