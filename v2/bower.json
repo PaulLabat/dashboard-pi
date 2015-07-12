@@ -1,0 +1,21 @@
+{
+  "name": "Dashboard-V2",
+  "version": "0.0.0",
+  "authors": [
+    "Paul Labat <labat.paul@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "fieldChooser": "~1.0.6",
+    "jquery-ui": "~1.11.4"
+  }
+}

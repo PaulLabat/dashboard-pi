@@ -1,0 +1,15 @@
+{
+  "name": "Dashboard-V2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serveur.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paul Labat",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^4.0.6",
+    "socket.io": "^1.3.5"
+  }
+}
