@@ -47,3 +47,14 @@ div#fieldChooser {
 .fc-destination-fields {
     float: right;
 }
+
+
+#listeDansLeFrigo{
+    position: absolute;
+    margin-left: 0px;
+}
+#listeDesChoix{
+    position: absolute;
+    margin-left: 20%;
+
+}

@@ -38,11 +38,20 @@
 
                     socket.emit('getchoix');
                     socket.emit('getDansLeFrigo');
+
+                    
+
+                    var button = document.getElementById("validate");
+                    button.onclick = function(){
+                        var nom = $("#newProduit").val();
+                        var quantite = $("#newQuantite").val();
+                        if(nom !== null && quantite !== null){
+                            socket.emit('insertIntoChoix', nom, quantite);
+                        }
+                        
+                    };
+
                 }
-
-
-
-
 
             });
 
@@ -77,7 +86,9 @@
                 newrow.insertCell(2).appendChild(button);
 
             }
-
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').focus()
+            });
 
 
         </script>
@@ -128,7 +139,34 @@
 
 
 
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="position:absolute;left:50%;">
+            Ajout aliment
+        </button>
 
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Nouvelle entrée</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nomProduit">Nom de l'aliment :</label><br>
+                            <input type="text" class="form-control" id="newProduit"><br>
+                            <label for="quantiteProduit">Quantité :</label><br>
+                            <input type="text" class="form-control" id="newQuantite"><br>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button id="validate" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </body>
 

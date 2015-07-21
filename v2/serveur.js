@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
 var socket = require('socket.io');
+
+var request = require('request');
+
 var addrmongo = "mongodb://localhost:27017/test";
 
 mongoose.connect(addrmongo, function(err) {
@@ -91,13 +94,37 @@ io.sockets.on('connection', function(socket){
         
         });
     });
+    
+    
+    socket.on('insertIntoChoix', function(nom, quantite){
+        console.log('insertintochoix', nom, quantite); 
+        var newEntry = new nouritureDansLeFrigoChoix({
+            nom:nom,
+            quantite:quantite
+        });
+
+        newEntry.save(function(err, doc){
+            if(err)return console.error(err);
+            else{
+                var json = [{_id:doc.id,nom:nom, quantite:quantite}];
+                socket.emit('getchoix', json);
+            }
+        });
+
+        
+        
+    });
 
 
 
 
 });
 
-
+/*request('http://www.transilien.com/flux/rss/traficLigne?codeLigne=C', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body) // Show the HTML for the Google homepage.
+    }
+})*/
 
 
 
