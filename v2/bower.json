@@ -16,6 +16,9 @@
     "jquery": "~2.1.4",
     "bootstrap": "~3.3.5",
     "fieldChooser": "~1.0.6",
-    "jquery-ui": "~1.11.4"
+    "jquery-ui": "~1.11.4",
+    "leaflet": "~0.7.3",
+    "Leaflet.EasyButton": "~1.1.0",
+    "font-awesome": "~4.4.0"
   }
 }

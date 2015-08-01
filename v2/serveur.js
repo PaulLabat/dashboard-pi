@@ -34,12 +34,10 @@ var nouritureDansLeFrigoChoix = mongoose.model('nouritureDansLeFrigoChoix', nour
 
 
 var io = socket.listen(3000);
-io.set('log level', 0);
 
 
 io.sockets.on('connection', function(socket){
     socket.on('getchoix', function(){
-        console.log('getchoix');
         nouritureDansLeFrigoChoix.find().exec(function(err, doc){
             if(err){
                 console.log('error find choix');
@@ -53,7 +51,6 @@ io.sockets.on('connection', function(socket){
     });
 
     socket.on('insertIntoFrigo', function(nom, quantite){
-        console.log('insertintofrigo', nom, quantite); 
         var newEntry = new nouritureDansLeFrigo({
             nom:nom,
             quantite:quantite
@@ -71,8 +68,6 @@ io.sockets.on('connection', function(socket){
     });
 
     socket.on('getDansLeFrigo', function(){
-        console.log('getdanslefrigo');
-
         nouritureDansLeFrigo.find().exec(function(err, doc){
             if(err) console.log('error find liste dans le frigo');
             else{
@@ -97,7 +92,6 @@ io.sockets.on('connection', function(socket){
     
     
     socket.on('insertIntoChoix', function(nom, quantite){
-        console.log('insertintochoix', nom, quantite); 
         var newEntry = new nouritureDansLeFrigoChoix({
             nom:nom,
             quantite:quantite
@@ -125,17 +119,3 @@ io.sockets.on('connection', function(socket){
         console.log(body) // Show the HTML for the Google homepage.
     }
 })*/
-
-
-
-/*var newChoix = new nouritureDansLeFrigoChoix({
-    nom:"steak",
-    quantite: 5
-
-});
-
-
-newChoix.save(function(err, newChoix){
-    if(err) return console.error(err);
-    else console.log("success save");
-});*/
