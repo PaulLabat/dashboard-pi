@@ -8,7 +8,7 @@ def getVigilance(departement):
 	vigilanceColor = None
 	vigilanceRisk = None
 	
-	url = 'http://api.domogeek.fr/vigilance/'+str(departement)+'/all'
+	url = 'http://http://domogeek.entropialux.com/vigilance/'+str(departement)+'/all'
 	res, error = subprocess.Popen(['curl',url], stdout = subprocess.PIPE).communicate()
 	if error is None:
 		try:
